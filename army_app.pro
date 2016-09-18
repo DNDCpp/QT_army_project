@@ -13,11 +13,14 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        widget.cpp
+        widget.cpp \
+    addsoldierdialog.cpp
 
-HEADERS  += widget.h
+HEADERS  += widget.h \
+    addsoldierdialog.h
 
-FORMS    += widget.ui
+FORMS    += widget.ui \
+    addsoldierdialog.ui
 
 RESOURCES += \
     resources.qrc

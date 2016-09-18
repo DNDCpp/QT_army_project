@@ -24,6 +24,7 @@ public slots:
     void setPageThree();
 private slots:
     void on_stackedWidget_currentChanged(int arg1);
+    void on_buttonAdd_clicked();
 };
 
 #endif // WIDGET_H

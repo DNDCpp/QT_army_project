@@ -1,5 +1,6 @@
 #include "widget.h"
 #include "ui_widget.h"
+#include "addsoldierdialog.h"
 
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
@@ -12,7 +13,7 @@ Widget::Widget(QWidget *parent) :
     connect(ui->pageOne,SIGNAL(clicked(bool)),this, SLOT(setPageOne()));
     connect(ui->pageTwo,SIGNAL(clicked(bool)),this, SLOT(setPageTwo()));
     connect(ui->pageThree,SIGNAL(clicked(bool)),this, SLOT(setPageThree()));
-
+    connect(ui->buttonAdd,SIGNAL(clicked(bool)),this,SLOT(on_buttonAdd_clicked()));
 }
 
 Widget::~Widget()
@@ -50,3 +51,9 @@ ui->pageTwo->style()->polish(ui->pageTwo);
 ui->pageThree->style()->polish(ui->pageThree);
 }
 
+
+void Widget::on_buttonAdd_clicked()
+{
+    AddSoldierDialog *dialog = new AddSoldierDialog;
+    dialog->exec();
+}
