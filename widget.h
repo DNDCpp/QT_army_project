@@ -17,6 +17,11 @@ public:
 
 private:
     Ui::Widget *ui;
+
+public slots:
+    void setPageOne();
+    void setPageTwo();
+    void setPageThree();
 };
 
 #endif // WIDGET_H
