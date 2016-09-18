@@ -24,6 +24,8 @@
    <string notr="true">#Widget{background-color: rgb(48, 62, 77);}
 QPushButton{
 color: rgb(241, 241, 241);
+border-color: rgb(48, 62, 77);
+border-right-width: 10px;
 }
 #baceIcon{
 border-image: url(:/icons/resources/icons/star.jpg);
@@ -108,7 +110,10 @@ border-left-color: rgb(36, 110, 183)
        </property>
        <property name="font">
         <font>
+         <family>Arial Narrow</family>
          <pointsize>14</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
         </font>
        </property>
        <property name="statusTip">
@@ -116,6 +121,9 @@ border-left-color: rgb(36, 110, 183)
        </property>
        <property name="whatsThis">
         <string/>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
        </property>
        <property name="autoFillBackground">
         <bool>false</bool>
@@ -151,7 +159,10 @@ border-left-color: rgb(36, 110, 183)
        </property>
        <property name="font">
         <font>
+         <family>Arial Narrow</family>
          <pointsize>14</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
         </font>
        </property>
        <property name="text">
@@ -185,7 +196,10 @@ border-left-color: rgb(36, 110, 183)
        </property>
        <property name="font">
         <font>
+         <family>Arial Narrow</family>
          <pointsize>14</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
         </font>
        </property>
        <property name="text">
