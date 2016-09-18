@@ -22,6 +22,8 @@ public slots:
     void setPageOne();
     void setPageTwo();
     void setPageThree();
+private slots:
+    void on_stackedWidget_currentChanged(int arg1);
 };
 
 #endif // WIDGET_H

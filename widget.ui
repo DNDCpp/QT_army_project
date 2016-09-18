@@ -21,21 +21,28 @@
    <string>РКС</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#Widget{background-color: rgb(48, 62, 77);}
-QPushButton{
-color: rgb(241, 241, 241);
-border-color: rgb(48, 62, 77);
-border-right-width: 10px;
+   <string notr="true">#Widget{
+background-color: rgb(48, 62, 77);
 }
 #baceIcon{
 border-image: url(:/icons/resources/icons/star.jpg);
-border-radius: 10px;
+border-width: 10px;
+border-color: rgb(36, 110, 183);
+
 }
-QPushButton:pressed{
-background-color: rgb(48, 62, 77);
+QPushButton{
+color: rgb(241, 241, 241);
+border-color: rgb(48, 62, 77);
+border-width: 10px;
 border-style: solid;
-border-left-width: 10px;
-border-left-color: rgb(36, 110, 183)
+}
+QPushButton[pagematches=true]
+{
+background-color: rgb(93, 108, 124);
+border-left-style: ridge;
+border-left-color: rgb(36, 110, 183);
+
+
 }</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -203,7 +210,7 @@ border-left-color: rgb(36, 110, 183)
         </font>
        </property>
        <property name="text">
-        <string>РКС</string>
+        <string>РКР</string>
        </property>
        <property name="autoDefault">
         <bool>false</bool>
@@ -240,6 +247,7 @@ border-left-color: rgb(36, 110, 183)
       <property name="styleSheet">
        <string notr="true">background-color: rgb(170, 255, 0);</string>
       </property>
+      <layout class="QHBoxLayout" name="horizontalLayout"/>
      </widget>
      <widget class="QWidget" name="page_3">
       <property name="styleSheet">
