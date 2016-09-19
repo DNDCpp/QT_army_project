@@ -454,6 +454,9 @@ color: white
        </item>
        <item>
         <widget class="QTableWidget" name="soldiersTable">
+         <property name="editTriggers">
+          <set>QAbstractItemView::NoEditTriggers</set>
+         </property>
          <property name="selectionBehavior">
           <enum>QAbstractItemView::SelectRows</enum>
          </property>

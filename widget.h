@@ -19,6 +19,10 @@ public:
 private:
     Ui::Widget *ui;
 
+    enum Column {
+        SURNAME, NAME, FATHERNAME, TYPE, RANK, POSITION, DATE, GUN, CALIBER, COUNT
+    };
+
 public slots:
     void setPageOne();
     void setPageTwo();
@@ -29,6 +33,7 @@ private slots:
     void on_buttonAdd_clicked();
     void on_buttonDelete_clicked();
     void on_buttonDeleteAll_clicked();
+    void on_buttonEdit_clicked();
 };
 
 #endif // WIDGET_H

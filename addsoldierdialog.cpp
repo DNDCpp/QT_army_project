@@ -63,6 +63,56 @@ QString AddSoldierDialog::count()
     return ui->count->text();
 }
 
+void AddSoldierDialog::setSurname(QString string)
+{
+    ui->surname->setText(string);
+}
+
+void AddSoldierDialog::setName(QString string)
+{
+    ui->name->setText(string);
+}
+
+void AddSoldierDialog::setFather_name(QString string)
+{
+    ui->father_name->setText(string);
+}
+
+void AddSoldierDialog::setType(QString string)
+{
+    ui->type->setText(string);
+}
+
+void AddSoldierDialog::setRank(QString string)
+{
+    ui->rank->setText(string);
+}
+
+void AddSoldierDialog::setPosition(QString string)
+{
+    ui->position->setText(string);
+}
+
+void AddSoldierDialog::setDate(QString string)
+{
+    ui->date->setText(string);
+}
+
+void AddSoldierDialog::setGun(QString string)
+{
+    ui->gun->setText(string);
+}
+
+void AddSoldierDialog::setCaliber(QString string)
+{
+    ui->caliber->setText(string);
+}
+
+void AddSoldierDialog::setCount(QString string)
+{
+    ui->count->setText(string);
+}
+
 void AddSoldierDialog::on_buttonBox_rejected()
 {
     reject();

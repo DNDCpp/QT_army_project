@@ -26,6 +26,18 @@ public:
     QString caliber();
     QString count();
 
+    void setSurname(QString string);
+    void setName(QString string);
+    void setFather_name(QString string);
+    void setType(QString string);
+    void setRank(QString string);
+    void setPosition(QString string);
+    void setDate(QString string);
+    void setGun(QString string);
+    void setCaliber(QString string);
+    void setCount(QString string);
+
+
 private slots:
     void on_buttonBox_rejected();
 
