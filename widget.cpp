@@ -124,8 +124,10 @@ void Widget::on_buttonDeleteAll_clicked()
 
 void Widget::on_buttonEdit_clicked()
 {
-    if(ui->soldiersTable->currentRow() < 0)return;
-    int row = ui->soldiersTable->currentRow();
+
+    QItemSelectionModel *itemModel = ui->soldiersTable->selectionModel();
+    if (itemModel->selectedRows().count() != 1) return;
+    int row = itemModel->selectedRows()[0].row();
 
     AddSoldierDialog *dialog = new AddSoldierDialog;
 
