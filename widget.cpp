@@ -123,6 +123,7 @@ void Widget::on_buttonDeleteAll_clicked()
 
 void Widget::on_buttonEdit_clicked()
 {
+    if(ui->soldiersTable->currentRow() < 0)return;
     int row = ui->soldiersTable->currentRow();
 
     AddSoldierDialog *dialog = new AddSoldierDialog;
