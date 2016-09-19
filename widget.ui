@@ -453,7 +453,10 @@ color: white
         </layout>
        </item>
        <item>
-        <widget class="QTableWidget" name="tableWidget">
+        <widget class="QTableWidget" name="soldiersTable">
+         <property name="selectionBehavior">
+          <enum>QAbstractItemView::SelectRows</enum>
+         </property>
          <column>
           <property name="text">
            <string>Фамилия</string>
@@ -521,8 +524,6 @@ color: white
     </widget>
    </item>
   </layout>
-  <zorder>stackedWidget</zorder>
-  <zorder>tableWidget</zorder>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
