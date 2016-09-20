@@ -14,7 +14,8 @@ Widget::Widget(QWidget *parent) :
     ui->stackedWidget->setCurrentIndex(0);
     ui->pageOne->setProperty("pagematches", true);
 
-    connect(ui->pageOne,SIGNAL(clicked(bool)),this, SLOT(setPageOne()));
+    connect(ui->pageOne,static_cast<void (QPushButton::*)(bool)>(&QPushButton::clicked),this,&QWidget::setPageOne);
+//    connect(ui->pageOne,SIGNAL(clicked(bool)),this, SLOT(setPageOne()));
     connect(ui->pageTwo,SIGNAL(clicked(bool)),this, SLOT(setPageTwo()));
     connect(ui->pageThree,SIGNAL(clicked(bool)),this, SLOT(setPageThree()));
 
