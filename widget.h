@@ -2,6 +2,7 @@
 #define WIDGET_H
 
 #include <QWidget>
+#include <QMessageBox>
 
 namespace Ui {
 class Widget;
