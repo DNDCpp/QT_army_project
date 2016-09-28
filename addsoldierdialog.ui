@@ -77,9 +77,6 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="1">
-      <widget class="QLineEdit" name="type"/>
-     </item>
      <item row="4" column="0">
       <widget class="QLabel" name="label_5">
        <property name="font">
@@ -92,9 +89,6 @@
         <string>Звание</string>
        </property>
       </widget>
-     </item>
-     <item row="4" column="1">
-      <widget class="QLineEdit" name="rank"/>
      </item>
      <item row="5" column="0">
       <widget class="QLabel" name="label_6">
@@ -126,7 +120,125 @@
       </widget>
      </item>
      <item row="6" column="1">
-      <widget class="QLineEdit" name="date"/>
+      <widget class="QDateEdit" name="date"/>
+     </item>
+     <item row="3" column="1">
+      <widget class="QComboBox" name="type">
+       <item>
+        <property name="text">
+         <string>Срочная</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Контрактная</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QComboBox" name="rank">
+       <item>
+        <property name="text">
+         <string>Рядовой (курсант)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Ефрейтор</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Младший сержант</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Сержант</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Старший сержант</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Старшина</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Прапорщик</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Старший прапорщик</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Младший лейтенант</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Лейтенант</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Старший лейтенант</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Капитан</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Майор</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Подполковник</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Полковник</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Генерал-майор</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Генерал-лейтенант</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Генерал-полковник</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Генерал армии</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Маршал Российской Федерации</string>
+        </property>
+       </item>
+      </widget>
      </item>
     </layout>
    </item>
@@ -169,9 +281,6 @@
          </property>
         </widget>
        </item>
-       <item row="1" column="1">
-        <widget class="QLineEdit" name="caliber"/>
-       </item>
        <item row="2" column="0">
         <widget class="QLabel" name="label_10">
          <property name="font">
@@ -185,8 +294,11 @@
          </property>
         </widget>
        </item>
+       <item row="1" column="1">
+        <widget class="QSpinBox" name="caliber"/>
+       </item>
        <item row="2" column="1">
-        <widget class="QLineEdit" name="count"/>
+        <widget class="QSpinBox" name="count"/>
        </item>
       </layout>
      </item>

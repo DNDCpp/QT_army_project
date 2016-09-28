@@ -28,14 +28,14 @@ QString AddSoldierDialog::father_name()
     return ui->father_name->text();
 }
 
-QString AddSoldierDialog::type()
+int AddSoldierDialog::type()
 {
-    return ui->type->text();
+    return ui->type->currentIndex();
 }
 
-QString AddSoldierDialog::rank()
+int AddSoldierDialog::rank()
 {
-    return ui->rank->text();
+    return ui->rank->currentIndex();
 }
 
 QString AddSoldierDialog::position()
@@ -43,9 +43,9 @@ QString AddSoldierDialog::position()
     return ui->position->text();
 }
 
-QString AddSoldierDialog::date()
+QDate AddSoldierDialog::date()
 {
-    return ui->date->text();
+    return ui->date->date();
 }
 
 QString AddSoldierDialog::gun()
@@ -53,14 +53,14 @@ QString AddSoldierDialog::gun()
     return ui->gun->text();
 }
 
-QString AddSoldierDialog::caliber()
+int AddSoldierDialog::caliber()
 {
-    return ui->caliber->text();
+    return ui->caliber->value();
 }
 
-QString AddSoldierDialog::count()
+int AddSoldierDialog::count()
 {
-    return ui->count->text();
+    return ui->count->value();
 }
 
 void AddSoldierDialog::setSurname(QString string)
@@ -78,14 +78,14 @@ void AddSoldierDialog::setFather_name(QString string)
     ui->father_name->setText(string);
 }
 
-void AddSoldierDialog::setType(QString string)
+void AddSoldierDialog::setType(int typeIndex)
 {
-    ui->type->setText(string);
+    ui->type->setCurrentIndex(typeIndex);
 }
 
-void AddSoldierDialog::setRank(QString string)
+void AddSoldierDialog::setRank(int rankIndex)
 {
-    ui->rank->setText(string);
+    ui->rank->setCurrentIndex(rankIndex);
 }
 
 void AddSoldierDialog::setPosition(QString string)
@@ -93,9 +93,9 @@ void AddSoldierDialog::setPosition(QString string)
     ui->position->setText(string);
 }
 
-void AddSoldierDialog::setDate(QString string)
+void AddSoldierDialog::setDate(QDate date)
 {
-    ui->date->setText(string);
+    ui->date->setDate(date);
 }
 
 void AddSoldierDialog::setGun(QString string)
@@ -103,14 +103,14 @@ void AddSoldierDialog::setGun(QString string)
     ui->gun->setText(string);
 }
 
-void AddSoldierDialog::setCaliber(QString string)
+void AddSoldierDialog::setCaliber(int caliber)
 {
-    ui->caliber->setText(string);
+    ui->caliber->setValue(caliber);
 }
 
-void AddSoldierDialog::setCount(QString string)
+void AddSoldierDialog::setCount(int count)
 {
-    ui->count->setText(string);
+    ui->count->setValue(count);
 }
 
 void AddSoldierDialog::on_buttonBox_rejected()

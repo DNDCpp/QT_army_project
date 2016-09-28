@@ -18,24 +18,24 @@ public:
     QString surname();
     QString name();
     QString father_name();
-    QString type();
-    QString rank();
+    int type();
+    int rank();
     QString position();
-    QString date();
+    QDate date();
     QString gun();
-    QString caliber();
-    QString count();
+    int caliber();
+    int count();
 
     void setSurname(QString string);
     void setName(QString string);
     void setFather_name(QString string);
-    void setType(QString string);
-    void setRank(QString string);
+    void setType(int typeIndex);
+    void setRank(int rankIndex);
     void setPosition(QString string);
-    void setDate(QString string);
+    void setDate(QDate date);
     void setGun(QString string);
-    void setCaliber(QString string);
-    void setCount(QString string);
+    void setCaliber(int caliber);
+    void setCount(int count);
 
 
 private slots:
