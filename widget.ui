@@ -62,17 +62,17 @@
 	border-left-color: rgb(36, 110, 183);
 }
 
-#page{
+#page,#page_2{
 	background-color: rgb(240, 240, 240);
 }
 
-#buttonEdit, #buttonAdd, #buttonDeleteAll,#buttonDelete
+#buttonEdit, #buttonAdd, #buttonDeleteAll,#buttonDelete,#buttonNextWeek,#buttonPreviousWeek
 {
 	background-color: rgb(240, 240, 240);
 	border-width: 0px;
 	border-style: solid;
 }
-#buttonEdit:hover, #buttonAdd:hover, #buttonDelete:hover, #buttonDeleteAll:hover
+#buttonEdit:hover, #buttonAdd:hover, #buttonDelete:hover, #buttonDeleteAll:hover,#buttonNextWeek:hover,#buttonPreviousWeek:hover
 {
 background-color: rgb(110, 110, 110);
 color: white
@@ -536,8 +536,227 @@ color: white
      </widget>
      <widget class="QWidget" name="page_2">
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(85, 170, 255);</string>
+       <string notr="true"/>
       </property>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>10</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>10</number>
+       </property>
+       <property name="bottomMargin">
+        <number>10</number>
+       </property>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="buttonPreviousWeek">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Arial Narrow</family>
+             <pointsize>12</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>НАЗ.</string>
+           </property>
+           <property name="autoDefault">
+            <bool>false</bool>
+           </property>
+           <property name="flat">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="dayesLabel">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>200</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Arial Narrow</family>
+             <pointsize>12</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>26 сентября — 2 октября</string>
+           </property>
+           <property name="textFormat">
+            <enum>Qt::AutoText</enum>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="buttonNextWeek">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Arial Narrow</family>
+             <pointsize>12</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>ВПЕР.</string>
+           </property>
+           <property name="autoDefault">
+            <bool>false</bool>
+           </property>
+           <property name="flat">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QTableWidget" name="soldiersTable_2">
+         <property name="editTriggers">
+          <set>QAbstractItemView::NoEditTriggers</set>
+         </property>
+         <property name="alternatingRowColors">
+          <bool>true</bool>
+         </property>
+         <property name="selectionBehavior">
+          <enum>QAbstractItemView::SelectRows</enum>
+         </property>
+         <property name="gridStyle">
+          <enum>Qt::NoPen</enum>
+         </property>
+         <property name="sortingEnabled">
+          <bool>true</bool>
+         </property>
+         <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+          <bool>true</bool>
+         </attribute>
+         <attribute name="horizontalHeaderStretchLastSection">
+          <bool>false</bool>
+         </attribute>
+         <column>
+          <property name="text">
+           <string>Звание</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Фамилия</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Пн</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Вт</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Ср</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Чт</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Пт</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Сб</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Вс</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
    </item>
