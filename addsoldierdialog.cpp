@@ -53,7 +53,7 @@ QString AddSoldierDialog::gun()
     return ui->gun->text();
 }
 
-int AddSoldierDialog::caliber()
+double AddSoldierDialog::caliber()
 {
     return ui->caliber->value();
 }
@@ -103,7 +103,7 @@ void AddSoldierDialog::setGun(QString string)
     ui->gun->setText(string);
 }
 
-void AddSoldierDialog::setCaliber(int caliber)
+void AddSoldierDialog::setCaliber(double caliber)
 {
     ui->caliber->setValue(caliber);
 }

@@ -27,14 +27,7 @@ Widget::~Widget()
 
 void Widget::initTable()
 {
-    for (int i=0; i<10; i++)
-    {
-        ui->soldiersTable->insertRow(ui->soldiersTable->rowCount());
-        for (int j=0; j<ui->soldiersTable->columnCount(); j++)
-        {
-            ui->soldiersTable->setItem(i, j, new QTableWidgetItem(QString::number(i+j)));
-        }
-    }
+
 }
 
 QString Widget::dateToString(QDate date)
@@ -225,7 +218,7 @@ void Widget::on_buttonAdd_clicked()
     QString position = dialog->position();
     QDate date = dialog->date();
     QString gun = dialog->gun();
-    int caliber = dialog->caliber();
+    double caliber = dialog->caliber();
     int count = dialog->count();
 
     ui->soldiersTable->insertRow(ui->soldiersTable->rowCount());
@@ -299,7 +292,7 @@ void Widget::on_buttonEdit_clicked()
     dialog->setPosition(ui->soldiersTable->item(row, POSITION)->text());
     dialog->setDate(stringToDate(ui->soldiersTable->item(row, DATE)->text()));
     dialog->setGun(ui->soldiersTable->item(row, GUN)->text());
-    dialog->setCaliber(ui->soldiersTable->item(row, CALIBER)->text().toInt());
+    dialog->setCaliber(ui->soldiersTable->item(row, CALIBER)->text().toDouble());
     dialog->setCount(ui->soldiersTable->item(row, COUNT)->text().toInt());
 
     int res = dialog->exec();

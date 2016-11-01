@@ -23,7 +23,7 @@ public:
     QString position();
     QDate date();
     QString gun();
-    int caliber();
+    double caliber();
     int count();
 
     void setSurname(QString string);
@@ -34,7 +34,7 @@ public:
     void setPosition(QString string);
     void setDate(QDate date);
     void setGun(QString string);
-    void setCaliber(int caliber);
+    void setCaliber(double caliber);
     void setCount(int count);
 
 
