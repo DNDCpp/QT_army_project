@@ -6,6 +6,7 @@
 #include <QDate>
 #include <QDebug>
 #include <QPair>
+#include <QStringList>
 
 namespace Ui {
 class Widget;
