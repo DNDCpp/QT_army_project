@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>600</height>
+    <height>653</height>
    </rect>
   </property>
   <property name="font">
@@ -73,13 +73,13 @@
 	background-color: rgb(240, 240, 240);
 }
 
-#buttonEdit, #buttonAdd, #buttonDeleteAll,#buttonDelete,#buttonNextWeek,#buttonPreviousWeek,#buttonEdit_2, #buttonAdd_2, #buttonDeleteAll_2,#buttonDelete_2
+#buttonEdit, #buttonAdd, #buttonDeleteAll,#buttonDelete,#buttonNextWeek,#buttonPreviousWeek,#buttonEditGun, #buttonAddGun, #buttonDeleteAllGun,#buttonDeleteGun
 {
 	background-color: rgb(240, 240, 240);
 	border-width: 0px;
 	border-style: solid;
 }
-#buttonEdit:hover, #buttonAdd:hover, #buttonDelete:hover, #buttonDeleteAll:hover,#buttonNextWeek:hover,#buttonPreviousWeek:hover,#buttonEdit_2:hover, #buttonAdd_2:hover, #buttonDeleteAll_2:hover,#buttonDelete_2:hover
+#buttonEdit:hover, #buttonAdd:hover, #buttonDelete:hover, #buttonDeleteAll:hover,#buttonNextWeek:hover,#buttonPreviousWeek:hover,#buttonEditGun:hover, #buttonAddGun:hover, #buttonDeleteAllGun:hover,#buttonDeleteGun:hover
 {
 background-color: rgb(110, 110, 110);
 color: white
@@ -806,7 +806,7 @@ color: white
           <number>0</number>
          </property>
          <item>
-          <widget class="QPushButton" name="buttonAdd_2">
+          <widget class="QPushButton" name="buttonAddGun">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -839,7 +839,7 @@ color: white
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="buttonEdit_2">
+          <widget class="QPushButton" name="buttonEditGun">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -872,7 +872,7 @@ color: white
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="buttonDelete_2">
+          <widget class="QPushButton" name="buttonDeleteGun">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -899,7 +899,7 @@ color: white
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="buttonDeleteAll_2">
+          <widget class="QPushButton" name="buttonDeleteAllGun">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -947,7 +947,7 @@ color: white
         </layout>
        </item>
        <item>
-        <widget class="QTableWidget" name="soldiersTable_3">
+        <widget class="QTableWidget" name="gunTable">
          <property name="editTriggers">
           <set>QAbstractItemView::NoEditTriggers</set>
          </property>

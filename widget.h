@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QMessageBox>
 #include <QDate>
+#include <QDebug>
 
 namespace Ui {
 class Widget;
@@ -27,8 +28,8 @@ public:
 private:
     Ui::Widget *ui;
 
-    enum Column {
-        SURNAME, NAME, FATHERNAME, TYPE, RANK, POSITION, DATE, GUN, CALIBER, COUNT
+    enum Soldier_Column {
+        SURNAME, NAME, FATHERNAME, TYPE, RANK, POSITION, DATE
     };
     enum Types {
         REGULAR, CONTRACT
@@ -40,6 +41,10 @@ private:
         ML_LEJTENANT, LEJTENANT, ST_LEJTENANT, KAPITAN,
         MAJOR, PODPOLKOVNIK, POLKOVNIK,
         GENERAL_MAJOR, GENERAL_LEJTENANT, GENERAL_POLKOVNIK, GENERAL_ARMII, MARSHAL_RF
+    };
+
+    enum Gun_Column {
+        G_SURNAME, G_RANK, G_POSITION, GUN, CALIBER, COUNT
     };
 
 public slots:
@@ -54,6 +59,10 @@ private slots:
     void on_buttonDelete_clicked();
     void on_buttonDeleteAll_clicked();
     void on_buttonEdit_clicked();
+    void on_buttonAddGun_clicked();
+    void on_buttonEditGun_clicked();
+    void on_buttonDeleteGun_clicked();
+    void on_buttonDeleteAllGun_clicked();
 };
 
 #endif // WIDGET_H

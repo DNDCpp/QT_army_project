@@ -1,6 +1,7 @@
 #include "widget.h"
 #include "ui_widget.h"
 #include "addsoldierdialog.h"
+#include "addgundialog.h"
 
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
@@ -13,7 +14,6 @@ Widget::Widget(QWidget *parent) :
     ui->stackedWidget->setCurrentIndex(0);
     ui->pageOne->setProperty("pagematches", true);
 
-    //connect(ui->pageOne,static_cast<void (QPushButton::*)(bool)>(&QPushButton::clicked),this,&QWidget::setPageOne);
     connect(ui->pageOne,SIGNAL(clicked(bool)),this, SLOT(setPageOne()));
     connect(ui->pageTwo,SIGNAL(clicked(bool)),this, SLOT(setPageTwo()));
     connect(ui->pageThree,SIGNAL(clicked(bool)),this, SLOT(setPageThree()));
@@ -28,6 +28,43 @@ Widget::~Widget()
 
 void Widget::initTable()
 {
+    ui->soldiersTable->insertRow(ui->soldiersTable->rowCount());
+    ui->gunTable->insertRow(ui->gunTable->rowCount());
+    int row = ui->gunTable->rowCount()-1;
+    QDate date(2000, 1, 25);
+    ui->soldiersTable->setItem(row, SURNAME, new QTableWidgetItem("Костюк"));
+    ui->soldiersTable->setItem(row, NAME, new QTableWidgetItem("Даниил"));
+    ui->soldiersTable->setItem(row, FATHERNAME, new QTableWidgetItem("Иванович"));
+    ui->soldiersTable->setItem(row, TYPE, new QTableWidgetItem(typeToString(REGULAR)));
+    ui->soldiersTable->setItem(row, RANK, new QTableWidgetItem(rankToString(RJADOVOJ)));
+    ui->soldiersTable->setItem(row, POSITION, new QTableWidgetItem("хулиган"));
+    ui->soldiersTable->setItem(row, DATE, new QTableWidgetItem(dateToString(date)));
+
+    ui->gunTable->setItem(row, G_SURNAME, new QTableWidgetItem("Костюк"));
+    ui->gunTable->setItem(row, G_RANK, new QTableWidgetItem(rankToString(RJADOVOJ)));
+    ui->gunTable->setItem(row, G_POSITION, new QTableWidgetItem("хулиган"));
+    ui->gunTable->setItem(row, GUN, new QTableWidgetItem("автомат"));
+    ui->gunTable->setItem(row, CALIBER, new QTableWidgetItem(QString::number(45.00)));
+    ui->gunTable->setItem(row, COUNT, new QTableWidgetItem(QString::number(100)));
+
+    //
+    ui->soldiersTable->insertRow(ui->soldiersTable->rowCount());
+    ui->gunTable->insertRow(ui->gunTable->rowCount());
+    row = ui->gunTable->rowCount()-1;
+    ui->soldiersTable->setItem(row, SURNAME, new QTableWidgetItem("Нигматуллина"));
+    ui->soldiersTable->setItem(row, NAME, new QTableWidgetItem("Дания"));
+    ui->soldiersTable->setItem(row, FATHERNAME, new QTableWidgetItem("Фанилевна"));
+    ui->soldiersTable->setItem(row, TYPE, new QTableWidgetItem(typeToString(REGULAR)));
+    ui->soldiersTable->setItem(row, RANK, new QTableWidgetItem(rankToString(RJADOVOJ)));
+    ui->soldiersTable->setItem(row, POSITION, new QTableWidgetItem("боксер"));
+    ui->soldiersTable->setItem(row, DATE, new QTableWidgetItem(dateToString(date)));
+
+    ui->gunTable->setItem(row, G_SURNAME, new QTableWidgetItem("Нигматуллина"));
+    ui->gunTable->setItem(row, G_RANK, new QTableWidgetItem(rankToString(RJADOVOJ)));
+    ui->gunTable->setItem(row, G_POSITION, new QTableWidgetItem("боксер"));
+    ui->gunTable->setItem(row, GUN, new QTableWidgetItem("автомат"));
+    ui->gunTable->setItem(row, CALIBER, new QTableWidgetItem(QString::number(45.00)));
+    ui->gunTable->setItem(row, COUNT, new QTableWidgetItem(QString::number(100)));
 
 }
 
@@ -209,6 +246,8 @@ void Widget::on_stackedWidget_currentChanged(int arg1)
 }
 
 
+// Page One buttons slots
+
 void Widget::on_buttonAdd_clicked()
 {
     AddSoldierDialog *dialog = new AddSoldierDialog;
@@ -230,6 +269,7 @@ void Widget::on_buttonAdd_clicked()
     int caliber = dialog->caliber();
     int count = dialog->count();
 
+    //add to soldier table
     ui->soldiersTable->insertRow(ui->soldiersTable->rowCount());
     int row = ui->soldiersTable->rowCount()-1;
 
@@ -240,9 +280,18 @@ void Widget::on_buttonAdd_clicked()
     ui->soldiersTable->setItem(row, RANK, new QTableWidgetItem(rankToString(rank)));
     ui->soldiersTable->setItem(row, POSITION, new QTableWidgetItem(position));
     ui->soldiersTable->setItem(row, DATE, new QTableWidgetItem(dateToString(date)));
-    ui->soldiersTable->setItem(row, GUN, new QTableWidgetItem(gun));
-    ui->soldiersTable->setItem(row, CALIBER, new QTableWidgetItem(QString::number(caliber)));
-    ui->soldiersTable->setItem(row, COUNT, new QTableWidgetItem(QString::number(count)));
+
+    //add to gun table
+
+    ui->gunTable->insertRow(ui->gunTable->rowCount());
+    int row2 = ui->gunTable->rowCount()-1;
+
+    ui->gunTable->setItem(row2, G_SURNAME, new QTableWidgetItem(surname));
+    ui->gunTable->setItem(row2, G_RANK, new QTableWidgetItem(rankToString(rank)));
+    ui->gunTable->setItem(row2, G_POSITION, new QTableWidgetItem(position));
+    ui->gunTable->setItem(row2, GUN, new QTableWidgetItem(gun));
+    ui->gunTable->setItem(row2, CALIBER, new QTableWidgetItem(QString::number(caliber)));
+    ui->gunTable->setItem(row2, COUNT, new QTableWidgetItem(QString::number(count)));
 
     delete dialog;
 }
@@ -300,9 +349,9 @@ void Widget::on_buttonEdit_clicked()
     dialog->setRank(stringToRank(ui->soldiersTable->item(row, RANK)->text()));
     dialog->setPosition(ui->soldiersTable->item(row, POSITION)->text());
     dialog->setDate(stringToDate(ui->soldiersTable->item(row, DATE)->text()));
-    dialog->setGun(ui->soldiersTable->item(row, GUN)->text());
-    dialog->setCaliber(ui->soldiersTable->item(row, CALIBER)->text().toInt());
-    dialog->setCount(ui->soldiersTable->item(row, COUNT)->text().toInt());
+//    dialog->setGun(ui->soldiersTable->item(row, GUN)->text());
+//    dialog->setCaliber(ui->soldiersTable->item(row, CALIBER)->text().toDouble());
+//    dialog->setCount(ui->soldiersTable->item(row, COUNT)->text().toInt());
 
     int res = dialog->exec();
     if (res == QDialog::Rejected)
@@ -318,18 +367,102 @@ void Widget::on_buttonEdit_clicked()
     ui->soldiersTable->item(row, RANK)->setText(rankToString(dialog->rank()));
     ui->soldiersTable->item(row, POSITION)->setText(dialog->position());
     ui->soldiersTable->item(row, DATE)->setText(dateToString(dialog->date()));
-    ui->soldiersTable->item(row, GUN)->setText(dialog->gun());
-    ui->soldiersTable->item(row, CALIBER)->setText(QString::number(dialog->caliber()));
-    ui->soldiersTable->item(row, COUNT)->setText(QString::number(dialog->count()));
+//    ui->soldiersTable->item(row, GUN)->setText(dialog->gun());
+//    ui->soldiersTable->item(row, CALIBER)->setText(QString::number(dialog->caliber()));
+//    ui->soldiersTable->item(row, COUNT)->setText(QString::number(dialog->count()));
 
     delete dialog;
 }
 
+// Page Two buttons slots
 
+void Widget::on_buttonAddGun_clicked()
+{
+    QItemSelectionModel *itemModel = ui->gunTable->selectionModel();
+    if (itemModel->selectedRows().count() != 1) return;
+    int row = itemModel->selectedRows()[0].row();
 
+    addGunDialog *dialog = new addGunDialog;
 
+    int res = dialog->exec();
+    if (res == QDialog::Rejected)
+    {
+        delete dialog;
+        return;
+    }
 
+    ui->gunTable->insertRow(ui->gunTable->rowCount());
+    int new_row = ui->gunTable->rowCount()-1;
 
+    ui->gunTable->setItem(new_row, G_SURNAME, new QTableWidgetItem(ui->gunTable->item(row, 0)->text()));
+    ui->gunTable->setItem(new_row, G_RANK, new QTableWidgetItem(ui->gunTable->item(row, 1)->text()));
+    ui->gunTable->setItem(new_row, G_POSITION, new QTableWidgetItem(ui->gunTable->item(row, 2)->text()));
+    ui->gunTable->setItem(new_row, GUN, new QTableWidgetItem(dialog->gun()));
+    ui->gunTable->setItem(new_row, CALIBER, new QTableWidgetItem(QString::number(dialog->caliber())));
+    ui->gunTable->setItem(new_row, COUNT, new QTableWidgetItem(QString::number(dialog->count())));
 
+    delete dialog;
+}
 
+void Widget::on_buttonEditGun_clicked()
+{
+    QItemSelectionModel *itemModel = ui->gunTable->selectionModel();
+    if (itemModel->selectedRows().count() != 1) return;
+    int row = itemModel->selectedRows()[0].row();
 
+    addGunDialog *dialog = new addGunDialog;
+
+    dialog->setGun(ui->gunTable->item(row, GUN)->text());
+    dialog->setCaliber(ui->gunTable->item(row, CALIBER)->text().toDouble());
+    dialog->setCount(ui->gunTable->item(row, COUNT)->text().toInt());
+
+    int res = dialog->exec();
+    if (res == QDialog::Rejected)
+    {
+        delete dialog;
+        return;
+    }
+
+    ui->gunTable->item(row, GUN)->setText(dialog->gun());
+    ui->gunTable->item(row, CALIBER)->setText(QString::number(dialog->caliber()));
+    ui->gunTable->item(row, COUNT)->setText(QString::number(dialog->count()));
+
+    delete dialog;
+}
+
+void Widget::on_buttonDeleteGun_clicked()
+{
+    QItemSelectionModel *itemModel = ui->gunTable->selectionModel();
+    QModelIndexList indexList = itemModel->selectedRows();
+    if (!indexList.isEmpty())
+    {
+        QMessageBox box;
+        box.setText("Удалить?");
+        box.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+        box.setDefaultButton(QMessageBox::Cancel);
+        int res = box.exec();
+        if (res == QMessageBox::Ok)
+        {
+            qSort(indexList.begin(), indexList.end(), qGreater<QModelIndex>());
+
+            for (QModelIndex row : indexList) {
+                ui->gunTable->removeRow(row.row());
+            }
+        }
+        else
+            return;
+    }
+}
+
+void Widget::on_buttonDeleteAllGun_clicked()
+{
+    QMessageBox box;
+    box.setText("Удалить все?");
+    box.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+    box.setDefaultButton(QMessageBox::Cancel);
+    int res = box.exec();
+    if (res == QMessageBox::Ok)
+        ui->gunTable->setRowCount(0);
+    else
+        return;
+}
