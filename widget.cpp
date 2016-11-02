@@ -10,6 +10,7 @@ Widget::Widget(QWidget *parent) :
     ui->setupUi(this);
 
     initTable();
+    setCurrentWeek();
 
     ui->stackedWidget->setCurrentIndex(0);
     ui->pageOne->setProperty("pagematches", true);
@@ -253,6 +254,103 @@ void Widget::editGunTableRow(int row, QString gun, double caliber, int count)
     ui->gunTable->item(row, COUNT)->setText(QString::number(count));
 }
 
+void Widget::setCurrentWeek()
+{
+    QDate today = QDate::currentDate();
+    currentWeek.first = today.addDays(-today.dayOfWeek() + 1);
+    currentWeek.second = currentWeek.first.addDays(6);
+    displayWeekLabel();
+}
+
+void Widget::displayWeekLabel()
+{
+    QString month1, month2;
+    switch (currentWeek.first.month()) {
+    case 1:
+        month1 = "января";
+        break;
+    case 2:
+        month1 = "февраля";
+        break;
+    case 3:
+        month1 = "марта";
+        break;
+    case 4:
+        month1 = "апреля";
+        break;
+    case 5:
+        month1 = "мая";
+        break;
+    case 6:
+        month1 = "июня";
+        break;
+    case 7:
+        month1 = "июля";
+        break;
+    case 8:
+        month1 = "августа";
+        break;
+    case 9:
+        month1 = "сентября";
+        break;
+    case 10:
+        month1 = "октября";
+        break;
+    case 11:
+        month1 = "ноября";
+        break;
+    case 12:
+        month1 = "декабря";
+        break;
+    default:
+        break;
+    }
+
+    switch (currentWeek.second.month()) {
+    case 1:
+        month2 = "января";
+        break;
+    case 2:
+        month2 = "февраля";
+        break;
+    case 3:
+        month2 = "марта";
+        break;
+    case 4:
+        month2 = "апреля";
+        break;
+    case 5:
+        month2 = "мая";
+        break;
+    case 6:
+        month2 = "июня";
+        break;
+    case 7:
+        month2 = "июля";
+        break;
+    case 8:
+        month2 = "августа";
+        break;
+    case 9:
+        month2 = "сентября";
+        break;
+    case 10:
+        month2 = "октября";
+        break;
+    case 11:
+        month2 = "ноября";
+        break;
+    case 12:
+        month2 = "декабря";
+        break;
+    default:
+        break;
+    }
+
+    ui->weekLabel->setText(QString::number(currentWeek.first.day()) + " " + month1 + "  ---  " +
+                           QString::number(currentWeek.second.day()) + " " + month2);
+}
+
 void Widget::setPageOne(){
     ui->stackedWidget->setCurrentIndex(0);
 }
@@ -479,4 +577,18 @@ void Widget::on_buttonDeleteAllGun_clicked()
         ui->gunTable->setRowCount(0);
     else
         return;
+}
+
+void Widget::on_buttonPreviousWeek_clicked()
+{
+    currentWeek.first = currentWeek.first.addDays(-7);
+    currentWeek.second = currentWeek.second.addDays(-7);
+    displayWeekLabel();
+}
+
+void Widget::on_buttonNextWeek_clicked()
+{
+    currentWeek.first = currentWeek.first.addDays(7);
+    currentWeek.second = currentWeek.second.addDays(7);
+    displayWeekLabel();
 }

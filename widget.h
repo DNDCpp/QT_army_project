@@ -5,6 +5,7 @@
 #include <QMessageBox>
 #include <QDate>
 #include <QDebug>
+#include <QPair>
 
 namespace Ui {
 class Widget;
@@ -17,6 +18,7 @@ class Widget : public QWidget
 public:
     explicit Widget(QWidget *parent = 0);
     ~Widget();
+
     void initTable();
     QString dateToString(QDate date);
     QDate stringToDate(QString string);
@@ -31,6 +33,8 @@ public:
     void editSoldierTableRow(int row, QString surname, QString name, QString father_name,
                              int type, int rank, QString position, QDate date);
     void editGunTableRow(int row, QString gun, double caliber, int count);
+    void setCurrentWeek();
+    void displayWeekLabel();
 
 private:
     Ui::Widget *ui;
@@ -54,6 +58,8 @@ private:
         G_SURNAME, G_RANK, G_POSITION, GUN, CALIBER, COUNT
     };
 
+    QPair <QDate, QDate> currentWeek;
+
 public slots:
     void setPageOne();
     void setPageTwo();
@@ -70,6 +76,8 @@ private slots:
     void on_buttonEditGun_clicked();
     void on_buttonDeleteGun_clicked();
     void on_buttonDeleteAllGun_clicked();
+    void on_buttonPreviousWeek_clicked();
+    void on_buttonNextWeek_clicked();
 };
 
 #endif // WIDGET_H

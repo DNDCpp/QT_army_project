@@ -324,7 +324,7 @@ color: white
    <item>
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
-      <number>3</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="page">
       <property name="styleSheet">
@@ -631,7 +631,7 @@ color: white
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="dayesLabel">
+          <widget class="QLabel" name="weekLabel">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
              <horstretch>0</horstretch>
