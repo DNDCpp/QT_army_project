@@ -24,6 +24,13 @@ public:
     int stringToType(QString string);
     QString rankToString(int rank);
     int stringToRank(QString string);
+    void addRowToSoldierTable(QString surname, QString name, QString father_name,
+                              int type, int rank, QString position, QDate date);
+    void addRowToGunTable(QString surname, int rank, QString position,
+                          QString gun = 0, double caliber = 0, int count = 0 );
+    void editSoldierTableRow(int row, QString surname, QString name, QString father_name,
+                             int type, int rank, QString position, QDate date);
+    void editGunTableRow(int row, QString gun, double caliber, int count);
 
 private:
     Ui::Widget *ui;

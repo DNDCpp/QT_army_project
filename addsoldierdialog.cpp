@@ -48,21 +48,6 @@ QDate AddSoldierDialog::date()
     return ui->date->date();
 }
 
-QString AddSoldierDialog::gun()
-{
-    return ui->gun->text();
-}
-
-double AddSoldierDialog::caliber()
-{
-    return ui->caliber->value();
-}
-
-int AddSoldierDialog::count()
-{
-    return ui->count->value();
-}
-
 void AddSoldierDialog::setSurname(QString string)
 {
     ui->surname->setText(string);
@@ -96,21 +81,6 @@ void AddSoldierDialog::setPosition(QString string)
 void AddSoldierDialog::setDate(QDate date)
 {
     ui->date->setDate(date);
-}
-
-void AddSoldierDialog::setGun(QString string)
-{
-    ui->gun->setText(string);
-}
-
-void AddSoldierDialog::setCaliber(double caliber)
-{
-    ui->caliber->setValue(caliber);
-}
-
-void AddSoldierDialog::setCount(int count)
-{
-    ui->count->setValue(count);
 }
 
 void AddSoldierDialog::on_buttonBox_rejected()

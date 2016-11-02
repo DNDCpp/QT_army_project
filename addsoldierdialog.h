@@ -22,9 +22,6 @@ public:
     int rank();
     QString position();
     QDate date();
-    QString gun();
-    double caliber();
-    int count();
 
     void setSurname(QString string);
     void setName(QString string);
@@ -33,9 +30,6 @@ public:
     void setRank(int rankIndex);
     void setPosition(QString string);
     void setDate(QDate date);
-    void setGun(QString string);
-    void setCaliber(double caliber);
-    void setCount(int count);
 
 
 private slots:
