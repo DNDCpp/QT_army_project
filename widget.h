@@ -46,6 +46,7 @@ public slots:
     void setPageOne();
     void setPageTwo();
     void setPageThree();
+    void setPageFour();
 
 private slots:
     void on_stackedWidget_currentChanged(int arg1);

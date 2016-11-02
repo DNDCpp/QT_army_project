@@ -17,6 +17,7 @@ Widget::Widget(QWidget *parent) :
     connect(ui->pageOne,SIGNAL(clicked(bool)),this, SLOT(setPageOne()));
     connect(ui->pageTwo,SIGNAL(clicked(bool)),this, SLOT(setPageTwo()));
     connect(ui->pageThree,SIGNAL(clicked(bool)),this, SLOT(setPageThree()));
+    connect(ui->pageFour,SIGNAL(clicked(bool)),this, SLOT(setPageFour()));
 
 }
 
@@ -177,6 +178,10 @@ void Widget::setPageThree(){
     ui->stackedWidget->setCurrentIndex(2);
 }
 
+void Widget::setPageFour(){
+    ui->stackedWidget->setCurrentIndex(3);
+}
+
 
 void Widget::on_stackedWidget_currentChanged(int arg1)
 {
@@ -184,12 +189,15 @@ void Widget::on_stackedWidget_currentChanged(int arg1)
     ui->pageOne->setProperty("pagematches", false);
     ui->pageTwo->setProperty("pagematches", false);
     ui->pageThree->setProperty("pagematches", false);
+     ui->pageFour->setProperty("pagematches", false);
 
     // Set one of the buttons to true
     if (arg1 == 0)
         ui->pageOne->setProperty("pagematches", true);
     else if (arg1 == 1)
         ui->pageTwo->setProperty("pagematches", true);
+    else if (arg1 == 3)
+        ui->pageFour->setProperty("pagematches", true);
     else
         ui->pageThree->setProperty("pagematches", true);
 
@@ -197,6 +205,7 @@ void Widget::on_stackedWidget_currentChanged(int arg1)
     ui->pageOne->style()->polish(ui->pageOne);
     ui->pageTwo->style()->polish(ui->pageTwo);
     ui->pageThree->style()->polish(ui->pageThree);
+    ui->pageFour->style()->polish(ui->pageFour);
 }
 
 
@@ -218,7 +227,7 @@ void Widget::on_buttonAdd_clicked()
     QString position = dialog->position();
     QDate date = dialog->date();
     QString gun = dialog->gun();
-    double caliber = dialog->caliber();
+    int caliber = dialog->caliber();
     int count = dialog->count();
 
     ui->soldiersTable->insertRow(ui->soldiersTable->rowCount());
@@ -292,7 +301,7 @@ void Widget::on_buttonEdit_clicked()
     dialog->setPosition(ui->soldiersTable->item(row, POSITION)->text());
     dialog->setDate(stringToDate(ui->soldiersTable->item(row, DATE)->text()));
     dialog->setGun(ui->soldiersTable->item(row, GUN)->text());
-    dialog->setCaliber(ui->soldiersTable->item(row, CALIBER)->text().toDouble());
+    dialog->setCaliber(ui->soldiersTable->item(row, CALIBER)->text().toInt());
     dialog->setCount(ui->soldiersTable->item(row, COUNT)->text().toInt());
 
     int res = dialog->exec();
