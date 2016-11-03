@@ -36,6 +36,7 @@ public:
     void editGunTableRow(int row, QString gun, double caliber, int count);
     void setCurrentWeek();
     void displayWeekLabel();
+    void initScheduleTable();
 
 private:
     Ui::Widget *ui;
@@ -79,6 +80,7 @@ private slots:
     void on_buttonDeleteAllGun_clicked();
     void on_buttonPreviousWeek_clicked();
     void on_buttonNextWeek_clicked();
+    void cellSlot(int row, int col);
 };
 
 #endif // WIDGET_H

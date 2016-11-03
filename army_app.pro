@@ -17,15 +17,18 @@ TEMPLATE = app
 SOURCES += main.cpp\
         widget.cpp \
     addsoldierdialog.cpp \
-    addgundialog.cpp
+    addgundialog.cpp \
+    postdialog.cpp
 
 HEADERS  += widget.h \
     addsoldierdialog.h \
-    addgundialog.h
+    addgundialog.h \
+    postdialog.h
 
 FORMS    += widget.ui \
     addsoldierdialog.ui \
-    addgundialog.ui
+    addgundialog.ui \
+    postdialog.ui
 
 RESOURCES += \
     resources.qrc

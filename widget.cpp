@@ -2,6 +2,7 @@
 #include "ui_widget.h"
 #include "addsoldierdialog.h"
 #include "addgundialog.h"
+#include "postdialog.h"
 
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
@@ -11,6 +12,7 @@ Widget::Widget(QWidget *parent) :
 
     initTable();
     setCurrentWeek();
+    initScheduleTable();
 
     ui->stackedWidget->setCurrentIndex(0);
     ui->pageOne->setProperty("pagematches", true);
@@ -20,6 +22,7 @@ Widget::Widget(QWidget *parent) :
     connect(ui->pageThree,SIGNAL(clicked(bool)),this, SLOT(setPageThree()));
     connect(ui->pageFour,SIGNAL(clicked(bool)),this, SLOT(setPageFour()));
 
+    connect(ui->ScheduleTable, SIGNAL(cellDoubleClicked(int,int)), this, SLOT(cellSlot(int,int)));
 }
 
 Widget::~Widget()
@@ -277,6 +280,12 @@ void Widget::displayWeekLabel()
                            QString::number(currentWeek.second.day()) + " " + month2);
 }
 
+void Widget::initScheduleTable()
+{
+    ui->ScheduleTable->insertRow(ui->ScheduleTable->rowCount());
+
+}
+
 void Widget::setPageOne(){
     ui->stackedWidget->setCurrentIndex(0);
 }
@@ -517,4 +526,13 @@ void Widget::on_buttonNextWeek_clicked()
     currentWeek.first = currentWeek.first.addDays(7);
     currentWeek.second = currentWeek.second.addDays(7);
     displayWeekLabel();
+}
+
+void Widget::cellSlot(int row, int col)
+{
+    qDebug() <<row<<col;
+    PostDialog *dialog = new PostDialog;
+
+    int res = dialog->exec();
+
 }
