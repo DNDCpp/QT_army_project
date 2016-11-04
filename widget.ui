@@ -712,7 +712,7 @@ color: white
         </layout>
        </item>
        <item>
-        <widget class="QTableWidget" name="ScheduleTable">
+        <widget class="QTableWidget" name="scheduleTable">
          <property name="editTriggers">
           <set>QAbstractItemView::NoEditTriggers</set>
          </property>

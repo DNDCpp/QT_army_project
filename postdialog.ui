@@ -6,60 +6,205 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>454</width>
+    <height>189</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>60</y>
-     <width>253</width>
-     <height>107</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <layout class="QFormLayout" name="formLayout_2">
-      <item row="0" column="0">
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>Тип поста</string>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <layout class="QFormLayout" name="formLayout_2">
+       <property name="formAlignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Тип поста</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="postType">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="currentText">
+          <string>Болен</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>Болен</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Ответственный по батальону</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Дежурный по батальону</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Помощник дежурного по батальону</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Командир подразделения антитеррора</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Дежурный по роте</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Дежурный по ВАИ</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Начальник караула</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Помощник начальника караула</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Дежурный по контрольно-пропускному пункту</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Помощник дежурного по контрольно-пропускному пункту</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Контролер контрольно-пропускного пункта</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Дежурный по соединению</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Помощник дежурного по соединению</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Комендант участка маршрута</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Комендант поста регулирования</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Водитель комендантской службы</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Командировка</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QWidget" name="punktLayout" native="true">
+       <layout class="QFormLayout" name="punktLayoutForm">
+        <property name="formAlignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
         </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QComboBox" name="postType"/>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QFormLayout" name="formLayout">
-      <item row="0" column="0">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Продолжительность (в днях)</string>
+        <property name="leftMargin">
+         <number>0</number>
         </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QSpinBox" name="duration"/>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <widget class="QDialogButtonBox" name="buttonBox">
-      <property name="standardButtons">
-       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>Пункт №  </string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QSpinBox" name="punktNumber">
+          <property name="maximum">
+           <number>1000</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <layout class="QFormLayout" name="formLayout">
+       <property name="formAlignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Продолжительность (в днях)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QSpinBox" name="duration">
+         <property name="minimum">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QDialogButtonBox" name="buttonBox">
+       <property name="standardButtons">
+        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

@@ -37,6 +37,7 @@ public:
     void setCurrentWeek();
     void displayWeekLabel();
     void initScheduleTable();
+    QDate getDateFromCell(int col);
 
 private:
     Ui::Widget *ui;

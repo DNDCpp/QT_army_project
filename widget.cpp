@@ -22,7 +22,7 @@ Widget::Widget(QWidget *parent) :
     connect(ui->pageThree,SIGNAL(clicked(bool)),this, SLOT(setPageThree()));
     connect(ui->pageFour,SIGNAL(clicked(bool)),this, SLOT(setPageFour()));
 
-    connect(ui->ScheduleTable, SIGNAL(cellDoubleClicked(int,int)), this, SLOT(cellSlot(int,int)));
+    connect(ui->scheduleTable, SIGNAL(cellDoubleClicked(int,int)), this, SLOT(cellSlot(int,int)));
 }
 
 Widget::~Widget()
@@ -282,8 +282,14 @@ void Widget::displayWeekLabel()
 
 void Widget::initScheduleTable()
 {
-    ui->ScheduleTable->insertRow(ui->ScheduleTable->rowCount());
+    ui->scheduleTable->insertRow(ui->scheduleTable->rowCount());
 
+}
+
+QDate Widget::getDateFromCell(int col)
+{
+    qDebug() << currentWeek.first.addDays(col-2);
+    return currentWeek.first.addDays(col-2);
 }
 
 void Widget::setPageOne(){
@@ -530,9 +536,23 @@ void Widget::on_buttonNextWeek_clicked()
 
 void Widget::cellSlot(int row, int col)
 {
-    qDebug() <<row<<col;
-    PostDialog *dialog = new PostDialog;
+    if (col > 1)
+    {
+        PostDialog *dialog = new PostDialog;
 
-    int res = dialog->exec();
+        int res = dialog->exec();
+        if (res == QDialog::Rejected)
+        {
+            delete dialog;
+            return;
+        }
 
+        QString dat = dialog->shortType(dialog->postType(), dialog->punktNumber());
+        for (int i=0; i<dialog->duration(); i++)
+        {
+            ui->scheduleTable->setItem(row, col+i, new QTableWidgetItem(dat));
+            QDate date = getDateFromCell(col+i);
+        }
+
+    }
 }

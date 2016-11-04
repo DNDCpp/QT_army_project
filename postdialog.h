@@ -15,15 +15,20 @@ public:
     explicit PostDialog(QWidget *parent = 0);
     ~PostDialog();
 
-    QString postType();
+    int postType();
     int duration();
-    void setPostType(QString type);
+    int punktNumber();
+    void setPostType(int type);
     void setDuration(int days);
+    void setPunktNumber(int punkt);
+    QString shortType(int currentIndex, int punkt = 0);
 
 private slots:
     void on_buttonBox_accepted();
 
     void on_buttonBox_rejected();
+
+    void on_postType_currentIndexChanged(const QString &arg1);
 
 private:
     Ui::PostDialog *ui;
